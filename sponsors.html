@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sponsorships | Crystal Lake Wizards Wrestling</title>
+  <meta name="description" content="Support the Crystal Lake Wizards Wrestling Club — sponsorship tiers from $150 to $2,500.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* ---- Sponsor-page-specific styles ---- */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .tier-card {
+      background: var(--color-bg-card);
+      border: 2px solid var(--color-border);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .tier-card:hover {
+      box-shadow: 0 6px 24px rgba(255, 215, 0, 0.18);
+      transform: translateY(-3px);
+    }
+
+    /* Featured / top-tier highlight */
+    .tier-card.tier-featured {
+      border-color: var(--color-gold);
+      position: relative;
+    }
+    .tier-featured-badge {
+      background: var(--color-gold);
+      color: #111;
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0.3rem;
+    }
+
+    .tier-header {
+      padding: 1.4rem 1.4rem 1rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .tier-name {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    /* Tier name colors */
+    .tier-white  .tier-name { color: #e8e8e8; }
+    .tier-black  .tier-name { color: #aaa; }
+    .tier-yellow .tier-name { color: var(--color-gold); }
+    .tier-plat   .tier-name { color: #b0c4de; }
+    .tier-title  .tier-name { color: var(--color-gold); text-shadow: 0 0 12px rgba(255,215,0,0.4); }
+    .tier-vip    .tier-name { color: var(--color-gold); text-shadow: 0 0 16px rgba(255,215,0,0.5); }
+
+    .tier-price {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+    .tier-price sup { font-size: 1rem; vertical-align: super; margin-right: 2px; }
+
+    .tier-body {
+      padding: 1.2rem 1.4rem;
+      flex: 1;
+    }
+
+    .tier-perks {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .tier-perks li {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      padding-left: 1.3rem;
+      position: relative;
+      line-height: 1.4;
+    }
+    .tier-perks li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .tier-footer {
+      padding: 1.2rem 1.4rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .tier-footer .btn { width: 100%; text-align: center; }
+
+    /* Setup instructions box */
+    .setup-box {
+      background: #111;
+      border: 1px solid var(--color-gold);
+      border-radius: 6px;
+      padding: 1.75rem 2rem;
+      max-width: 720px;
+    }
+    .setup-box h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .setup-steps {
+      list-style: none;
+      counter-reset: steps;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .setup-steps li {
+      counter-increment: steps;
+      padding-left: 2.2rem;
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+    .setup-steps li::before {
+      content: counter(steps);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: var(--color-gold);
+      color: #111;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.5rem;
+    }
+    .setup-steps code {
+      background: var(--color-bg-card);
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      color: var(--color-gold);
+    }
+
+    @media (max-width: 900px) {
+      .tiers-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .tiers-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="/index.html" class="site-logo">Crystal Lake <span>Wizards</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/schedule.html">Schedule</a></li>
+          <li><a href="/news.html">News</a></li>
+          <li><a href="/photos.html">Photos</a></li>
+          <li><a href="/standings.html">Standings</a></li>
+          <li><a href="/links.html">Links</a></li>
+          <li><a href="/sponsors.html" class="active">Sponsors</a></li>
+          <li><a href="/contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="page-hero">
+      <div class="container">
+        <h1 class="page-hero-title">Become a Sponsor</h1>
+        <p class="page-hero-sub">Support the Crystal Lake Wizards Wrestling Club &mdash; a registered 501(c)(3) nonprofit</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="section-header" style="max-width: 680px; margin-bottom: 2.5rem;">
+          <h2 class="section-title">Sponsorship Tiers</h2>
+          <p>Your sponsorship directly funds equipment, tournament entry fees, and uniforms for Crystal Lake youth wrestlers. Select a tier below to register and pay securely through Stripe. Donations may be tax-deductible &mdash; consult your tax advisor.</p>
+        </div>
+
+        <div class="tiers-grid">
+
+          <!-- White — $150 -->
+          <div class="tier-card tier-white">
+            <div class="tier-header">
+              <p class="tier-name">White</p>
+              <p class="tier-price"><sup>$</sup>150</p>
+            </div>
+            <div class="tier-body">
+              <ul class="tier-perks">
+                <li>Name listed on team website</li>
+                <li>Social media thank-you post</li>
+                <li>Certificate of appreciation</li>
+              </ul>
+            </div>
+            <div class="tier-footer">
+              <!--
+                STRIPE SETUP: Replace the href below with your Stripe Payment Link URL.
+                Example: href="https://buy.stripe.com/yourLinkHere"
+                Create this link at: dashboard.stripe.com → Payment Links → + Create link
+                Set amount to $150, label "White Sponsorship"
+              -->
+              <a href="#stripe-setup-required" class="btn btn-outline" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+                Register &mdash; $150
+              </a>
+            </div>
+          </div>
+
+          <!-- Black — $250 -->
+          <div class="tier-card tier-black">
+            <div class="tier-header">
+              <p class="tier-name">Black</p>
+              <p class="tier-price"><sup>$</sup>250</p>
+            </div>
+            <div class="tier-body">
+              <ul class="tier-perks">
+                <li>Everything in White</li>
+                <li>Logo on team banner at home events</li>
+                <li>Listed in event programs</li>
+              </ul>
+            </div>
+            <div class="tier-footer">
+              <!--
+                STRIPE SETUP: Replace href with your Stripe Payment Link for Black ($250).
+              -->
+              <a href="#stripe-setup-required" class="btn btn-outline" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+                Register &mdash; $250
+              </a>
+            </div>
+          </div>
+
+          <!-- Yellow — $500 -->
+          <div class="tier-card tier-yellow">
+            <div class="tier-header">
+              <p class="tier-name">Yellow</p>
+              <p class="tier-price"><sup>$</sup>500</p>
+            </div>
+            <div class="tier-body">
+              <ul class="tier-perks">
+                <li>Everything in Black</li>
+                <li>Larger logo on team banner</li>
+                <li>Logo on team apparel</li>
+                <li>Named recognition at home events</li>
+              </ul>
+            </div>
+            <div class="tier-footer">
+              <!--
+                STRIPE SETUP: Replace href with your Stripe Payment Link for Yellow ($500).
+              -->
+              <a href="#stripe-setup-required" class="btn btn-outline" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+                Register &mdash; $500
+              </a>
+            </div>
+          </div>
+
+          <!-- Platinum — $1,000 -->
+          <div class="tier-card tier-plat">
+            <div class="tier-header">
+              <p class="tier-name">Platinum</p>
+              <p class="tier-price"><sup>$</sup>1,000</p>
+            </div>
+            <div class="tier-body">
+              <ul class="tier-perks">
+                <li>Everything in Yellow</li>
+                <li>Premium logo placement on all materials</li>
+                <li>Dedicated social media feature post</li>
+                <li>Listed on all season communications</li>
+              </ul>
+            </div>
+            <div class="tier-footer">
+              <!--
+                STRIPE SETUP: Replace href with your Stripe Payment Link for Platinum ($1,000).
+              -->
+              <a href="#stripe-setup-required" class="btn btn-primary" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+                Register &mdash; $1,000
+              </a>
+            </div>
+          </div>
+
+          <!-- Title — $1,500 -->
+          <div class="tier-card tier-title tier-featured">
+            <div class="tier-featured-badge">&#11088; Title Sponsor</div>
+            <div class="tier-header">
+              <p class="tier-name">Title</p>
+              <p class="tier-price"><sup>$</sup>1,500</p>
+            </div>
+            <div class="tier-body">
+              <ul class="tier-perks">
+                <li>Everything in Platinum</li>
+                <li>Name in club title at all events</li>
+                <li>Top logo placement on banner &amp; apparel</li>
+                <li>Featured in team newsletter</li>
+                <li>Framed sponsor certificate</li>
+              </ul>
+            </div>
+            <div class="tier-footer">
+              <!--
+                STRIPE SETUP: Replace href with your Stripe Payment Link for Title ($1,500).
+              -->
+              <a href="#stripe-setup-required" class="btn btn-primary" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+                Register &mdash; $1,500
+              </a>
+            </div>
+          </div>
+
+          <!-- VIP Corporate Sponsor — $2,500 -->
+          <div class="tier-card tier-vip tier-featured">
+            <div class="tier-featured-badge">&#127942; VIP Corporate Sponsor</div>
+            <div class="tier-header">
+              <p class="tier-name">VIP Corporate</p>
+              <p class="tier-price"><sup>$</sup>2,500</p>
+            </div>
+            <div class="tier-body">
+              <ul class="tier-perks">
+                <li>Everything in Title</li>
+                <li>Presenting sponsor at all home events</li>
+                <li>Largest logo on all team materials</li>
+                <li>Exclusive social media campaign</li>
+                <li>Personal thank-you from the team</li>
+                <li>VIP recognition at season banquet</li>
+              </ul>
+            </div>
+            <div class="tier-footer">
+              <!--
+                STRIPE SETUP: Replace href with your Stripe Payment Link for VIP Corporate ($2,500).
+              -->
+              <a href="#stripe-setup-required" class="btn btn-primary" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+                Register &mdash; $2,500
+              </a>
+            </div>
+          </div>
+
+        </div><!-- end .tiers-grid -->
+
+        <p style="font-size:0.85rem; color: var(--color-text-muted); margin-bottom: 3rem;">
+          All payments are processed securely by Stripe. The Crystal Lake Wizards Wrestling Club is a registered 501(c)(3) nonprofit. Sponsorships may be tax-deductible &mdash; please consult your tax advisor. For custom sponsorship arrangements or questions, <a href="/contact.html">contact us</a>.
+        </p>
+
+        <hr class="divider">
+
+        <!-- Setup Instructions (visible to site admin, can be removed once links are live) -->
+        <div class="setup-box" id="stripe-setup">
+          <h3>&#9881; Site Admin: How to Activate Stripe Payment Links</h3>
+          <ol class="setup-steps">
+            <li>Create a free Stripe account at <strong>stripe.com</strong>. Apply for nonprofit rates under <strong>Settings &rarr; Business details</strong> &mdash; as a 501(c)(3) you qualify for 2.2% + 30&cent; instead of 2.9% + 30&cent;.</li>
+            <li>In your Stripe dashboard, go to <strong>Payment Links &rarr; + Create link</strong>. Set the price to $150 and name it <code>White Sponsorship</code>. Copy the link URL (looks like <code>https://buy.stripe.com/abc123</code>).</li>
+            <li>Repeat step 2 for each tier: <code>Black $250</code>, <code>Yellow $500</code>, <code>Platinum $1,000</code>, <code>Title $1,500</code>, <code>VIP Corporate $2,500</code>.</li>
+            <li>Open <code>sponsors.html</code> in a text editor. Find each <code>&lt;a href="#stripe-setup-required"&gt;</code> button and replace <code>#stripe-setup-required</code> with the matching Stripe Payment Link URL. Also remove the <code>onclick="alert(...)"</code> attribute from each button.</li>
+            <li>Once all 6 links are replaced, you can optionally delete this entire <code>&lt;div class="setup-box"&gt;</code> section from the page &mdash; it's only needed during setup.</li>
+            <li>Save the file, commit, and push. Sponsors will be taken directly to Stripe&rsquo;s hosted checkout. Stripe sends them a receipt automatically, and deposits funds to your connected bank account.</li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="/index.html" class="site-logo">Crystal Lake <span>Wizards</span></a>
+        <p class="footer-tagline">Crystal Lake Wizards Wrestling &mdash; Crystal Lake, IL</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="/schedule.html">Schedule</a>
+        <a href="/news.html">News</a>
+        <a href="/photos.html">Photos</a>
+        <a href="/standings.html">Standings</a>
+        <a href="/links.html">Links</a>
+        <a href="/sponsors.html">Sponsors</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="container">
+      <p class="footer-copyright">&copy; 2025 Crystal Lake Wizards Wrestling. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav    = document.querySelector('.main-nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+    });
+  </script>
+
+</body>
+</html>

@@ -3,121 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Mrs. Simmons' Class</title>
-  <meta name="description" content="Contact Mrs. Simmons, 2s &amp; 3s teacher at St. Peter Lutheran Preschool in Arlington Heights, IL.">
+  <title>Contact Us | Crystal Lake Wizards Wrestling</title>
+  <meta name="description" content="Contact the Crystal Lake Wizards Wrestling Club — practice info, registration questions, and more.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
   <header class="site-header">
-    <div class="header-inner">
-      <a class="site-logo" href="index.html">
-        <span class="logo-name">Mrs. Simmons</span>
-        <span class="logo-sub">St. Peter Lutheran &bull; Arlington Heights, IL</span>
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
-      <nav class="site-nav" id="site-nav">
-        <a href="index.html">Home</a>
-        <a href="announcements.html">Announcements</a>
-        <a href="resources.html">Resources</a>
-        <a href="contact.html" class="active nav-contact-btn">Contact</a>
+    <div class="container nav-wrapper">
+      <a href="/index.html" class="site-logo">Crystal Lake <span>Wizards</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/schedule.html">Schedule</a></li>
+          <li><a href="/news.html">News</a></li>
+          <li><a href="/photos.html">Photos</a></li>
+          <li><a href="/standings.html">Standings</a></li>
+          <li><a href="/links.html">Links</a></li>
+          <li><a href="/sponsors.html">Sponsors</a></li>
+          <li><a href="/contact.html" class="active">Contact Us</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- ===== PAGE HERO ===== -->
-    <section class="page-hero">
+    <div class="page-hero">
       <div class="container">
-        <h1>&#128140; Get in Touch</h1>
-        <p>I love hearing from families &mdash; don't hesitate to reach out!</p>
+        <h1 class="page-hero-title">Contact the Wizards</h1>
+        <p class="page-hero-sub">Questions about registration, practice, or the club? Reach out below.</p>
       </div>
-    </section>
+    </div>
 
-    <!-- ===== CONTACT INFO ===== -->
     <section class="section">
       <div class="container">
-        <div class="grid-2" style="align-items:start; gap:3rem;">
+        <div class="contact-grid">
 
-          <!-- Left: Contact methods -->
-          <div>
-            <div class="section-header">
-              <h2 class="section-title">How to Reach Me</h2>
-              <p class="section-subtitle">The best ways to connect with Mrs. Simmons.</p>
-            </div>
-
-            <div class="contact-block">
-              <span class="contact-block-icon">&#128231;</span>
-              <div>
-                <h4>School Email</h4>
-                <p>Contact through the school office</p>
-                <small>Best for: questions, concerns, general communication. I respond within one school day.</small>
+          <!-- Contact Form -->
+          <div class="card">
+            <h2 class="card-title">Send Us a Message</h2>
+            <p class="card-meta" style="margin-bottom:1.25rem;">Fill out the form below and we'll get back to you as soon as possible.</p>
+            <form>
+              <div class="form-group">
+                <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" name="name" placeholder="Your full name" autocomplete="name">
               </div>
-            </div>
-
-            <div class="contact-block">
-              <span class="contact-block-icon">&#128197;</span>
-              <div>
-                <h4>Drop-Off &amp; Pick-Up</h4>
-                <p>Before or after class</p>
-                <small>Available for quick chats at drop-off (8:15&ndash;8:30 AM) and pick-up (11:00&ndash;11:15 AM). For longer conversations, please email to schedule a time.</small>
+              <div class="form-group">
+                <label for="contact-email">Email Address</label>
+                <input type="email" id="contact-email" name="email" placeholder="you@example.com" autocomplete="email">
               </div>
-            </div>
-
-            <div class="contact-block">
-              <span class="contact-block-icon">&#128241;</span>
-              <div>
-                <h4>School Office</h4>
-                <p>St. Peter Lutheran Preschool</p>
-                <small>For urgent matters during school hours, please contact the school office directly. They can reach me in the classroom.</small>
+              <div class="form-group">
+                <label for="contact-subject">Subject</label>
+                <select id="contact-subject" name="subject">
+                  <option value="">Select a topic&hellip;</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="registration">Registration Question</option>
+                  <option value="schedule">Schedule / Practice Info</option>
+                  <option value="volunteer">Volunteer</option>
+                  <option value="sponsorship">Sponsorship</option>
+                  <option value="other">Other</option>
+                </select>
               </div>
-            </div>
-
-            <div class="contact-block">
-              <span class="contact-block-icon">&#128203;</span>
-              <div>
-                <h4>Classroom Folder</h4>
-                <p>Daily take-home folder</p>
-                <small>Your child's folder goes home each day with notes, artwork, and reminders. A great way to send written notes back to me!</small>
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" rows="5" placeholder="Write your message here&hellip;"></textarea>
               </div>
-            </div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            <p class="form-note">
+              <strong>Note:</strong> This form does not yet send email automatically. To reach us directly, please use the contact information to the right. Form functionality will be added in a future update.
+            </p>
           </div>
 
-          <!-- Right: FAQ -->
+          <!-- Contact Info -->
           <div>
-            <div class="section-header">
-              <h2 class="section-title">Common Questions</h2>
-              <p class="section-subtitle">Answers to things parents often ask.</p>
+            <div class="card" style="margin-bottom: 1.5rem;">
+              <h2 class="card-title">Contact Information</h2>
+              <ul style="list-style:none; margin-top: 0.5rem;">
+                <li class="contact-info-item">
+                  <span class="contact-info-label">Head Coach</span>
+                  <span>[Name TBD]</span>
+                </li>
+                <li class="contact-info-item">
+                  <span class="contact-info-label">Club President</span>
+                  <span>[Name TBD]</span>
+                </li>
+                <li class="contact-info-item">
+                  <span class="contact-info-label">Email</span>
+                  <span>[Email TBD]</span>
+                </li>
+                <li class="contact-info-item">
+                  <span class="contact-info-label">Location</span>
+                  <span>Crystal Lake Central HS<br>1 S McHenry Ave<br>Crystal Lake, IL 60014</span>
+                </li>
+                <li class="contact-info-item">
+                  <span class="contact-info-label">Practice</span>
+                  <span>Mon / Wed / Fri<br>6:00 PM &ndash; 8:00 PM</span>
+                </li>
+                <li class="contact-info-item">
+                  <span class="contact-info-label">Season</span>
+                  <span>October &ndash; March</span>
+                </li>
+              </ul>
             </div>
-            <div class="card" style="padding:0 1.5rem;">
-              <div class="faq-item">
-                <h4>What should my child bring to school each day?</h4>
-                <p>A labeled backpack, a nut-free snack in a labeled bag, a water bottle, and a complete change of clothes. Everything should have your child's name on it!</p>
-              </div>
-              <div class="faq-item">
-                <h4>What if my child is sick?</h4>
-                <p>Please keep your child home if they have a fever (above 100.4&deg;F), vomiting, diarrhea, or signs of illness. Your child should be symptom-free for 24 hours before returning.</p>
-              </div>
-              <div class="faq-item">
-                <h4>How do I know what my child did in class?</h4>
-                <p>Check the daily take-home folder! I send home notes or a weekly recap. You can also find updates on this website in the Announcements section.</p>
-              </div>
-              <div class="faq-item">
-                <h4>My child is struggling with drop-off. What should I do?</h4>
-                <p>Separation anxiety is very normal at this age! A quick, cheerful goodbye is usually best &mdash; lingering can make it harder. Your child almost always settles within minutes. Email me if you're concerned and we'll work through it together.</p>
-              </div>
-              <div class="faq-item">
-                <h4>How can I volunteer in the classroom?</h4>
-                <p>We love parent volunteers for special events! Keep an eye on announcements for opportunities. All volunteers need a background check through the school office first.</p>
-              </div>
-              <div class="faq-item">
-                <h4>What is the school's allergy policy?</h4>
-                <p>We are a nut-free classroom. Please do not send snacks containing peanuts or tree nuts. If your child has other allergies, please reach out so we can keep everyone safe.</p>
-              </div>
+
+            <div class="card">
+              <h3 class="card-title">Registration</h3>
+              <p style="font-size:0.9rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Interested in joining the Crystal Lake Wizards? We welcome wrestlers of all skill levels, ages 6&ndash;18. Registration opens each summer for the upcoming season.</p>
+              <a href="mailto:[TBD]" class="btn btn-primary btn-sm">Register Interest</a>
             </div>
           </div>
 
@@ -125,95 +125,62 @@
       </div>
     </section>
 
-    <!-- ===== SCHOOL LOCATION ===== -->
-    <section class="section section-alt">
+    <!-- Social Links -->
+    <section class="section" style="background: var(--color-bg-surface); border-top: 1px solid var(--color-border);">
       <div class="container">
-        <div class="section-header text-center">
-          <h2 class="section-title">Find Us</h2>
-          <p class="section-subtitle">St. Peter Lutheran Church &amp; Preschool, Arlington Heights, IL</p>
+        <div class="section-header">
+          <h2 class="section-title">Follow Us</h2>
+          <p>Stay up to date with team news and events on social media</p>
         </div>
-        <div class="grid-3" style="gap:1.5rem;">
-          <div class="card info-card">
-            <span class="info-card-icon">&#128205;</span>
-            <div>
-              <h4>Address</h4>
-              <p>St. Peter Lutheran<br>Arlington Heights, IL</p>
-            </div>
+        <div class="social-grid">
+          <div class="social-card">
+            <p class="social-card-platform">Facebook</p>
+            <p>Follow us on Facebook for team updates, photos, and event announcements.</p>
+            <p style="margin-top:0.75rem; font-size:0.8rem; color: var(--color-gold);">Link coming soon</p>
           </div>
-          <div class="card info-card">
-            <span class="info-card-icon">&#9200;</span>
-            <div>
-              <h4>Drop-Off</h4>
-              <p>8:15 AM &ndash; 8:30 AM<br>Main church entrance</p>
-            </div>
+          <div class="social-card">
+            <p class="social-card-platform">Instagram</p>
+            <p>See action shots, team moments, and behind-the-scenes content on Instagram.</p>
+            <p style="margin-top:0.75rem; font-size:0.8rem; color: var(--color-gold);">Link coming soon</p>
           </div>
-          <div class="card info-card">
-            <span class="info-card-icon">&#127968;</span>
-            <div>
-              <h4>Pick-Up</h4>
-              <p>11:00 AM &ndash; 11:15 AM<br>Main church entrance</p>
-            </div>
+          <div class="social-card">
+            <p class="social-card-platform">Twitter / X</p>
+            <p>Quick updates, results, and announcements on Twitter/X throughout the season.</p>
+            <p style="margin-top:0.75rem; font-size:0.8rem; color: var(--color-gold);">Link coming soon</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ===== CLOSING NOTE ===== -->
-    <section class="section">
-      <div class="container text-center" style="max-width:620px;">
-        <div style="font-size:3rem; margin-bottom:1rem;">&#129505;</div>
-        <h2 style="font-size:1.6rem; margin-bottom:0.75rem;">We're in This Together</h2>
-        <p style="font-size:1.05rem; color:var(--color-text-muted); line-height:1.8;">
-          Partnering with families is one of my favorite parts of teaching. You know your child best &mdash;
-          and together we can make this year amazing for them. Please always feel welcome to reach out
-          with anything on your mind, big or small.
-        </p>
-        <p style="margin-top:1rem; font-family:var(--font-heading); font-weight:700; font-size:1.1rem; color:var(--color-primary);">
-          &mdash; Mrs. Simmons
-        </p>
       </div>
     </section>
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="/index.html" class="site-logo">Crystal Lake <span>Wizards</span></a>
+        <p class="footer-tagline">Crystal Lake Wizards Wrestling &mdash; Crystal Lake, IL</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="/schedule.html">Schedule</a>
+        <a href="/news.html">News</a>
+        <a href="/photos.html">Photos</a>
+        <a href="/standings.html">Standings</a>
+        <a href="/links.html">Links</a>
+        <a href="/sponsors.html">Sponsors</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
     <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <div class="site-logo" style="display:inline-flex;">
-            <span class="logo-name">Mrs. Simmons</span>
-            <span class="logo-sub">St. Peter Lutheran &bull; Arlington Heights, IL</span>
-          </div>
-          <p>A warm and joyful 2s &amp; 3s preschool classroom rooted in faith, play, and community.</p>
-        </div>
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="announcements.html">Announcements</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>School</h4>
-          <p>St. Peter Lutheran<br>Arlington Heights, IL<br><br>Preschool &bull; 2s &amp; 3s Program</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2025 Mrs. Simmons' Classroom &bull; St. Peter Lutheran</span>
-        <span>Made with &#10084; for our little learners</span>
-      </div>
+      <p class="footer-copyright">&copy; 2025 Crystal Lake Wizards Wrestling. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
     const toggle = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('site-nav');
+    const nav    = document.querySelector('.main-nav');
     toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
+      nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
     });
   </script>
 

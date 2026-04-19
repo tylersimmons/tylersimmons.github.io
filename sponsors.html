@@ -116,64 +116,6 @@
 
     .tier-footer .btn { width: 100%; text-align: center; }
 
-    /* Setup instructions box */
-    .setup-box {
-      background: #111;
-      border: 1px solid var(--color-gold);
-      border-radius: 6px;
-      padding: 1.75rem 2rem;
-      max-width: 720px;
-    }
-    .setup-box h3 {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      color: var(--color-gold);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 1rem;
-    }
-    .setup-steps {
-      list-style: none;
-      counter-reset: steps;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .setup-steps li {
-      counter-increment: steps;
-      padding-left: 2.2rem;
-      position: relative;
-      font-size: 0.9rem;
-      color: var(--color-text-muted);
-      line-height: 1.5;
-    }
-    .setup-steps li::before {
-      content: counter(steps);
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 1.5rem;
-      height: 1.5rem;
-      background: var(--color-gold);
-      color: #111;
-      font-family: var(--font-heading);
-      font-size: 0.8rem;
-      font-weight: 700;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      line-height: 1.5rem;
-    }
-    .setup-steps code {
-      background: var(--color-bg-card);
-      padding: 0.1rem 0.4rem;
-      border-radius: 3px;
-      font-size: 0.85rem;
-      color: var(--color-gold);
-    }
-
     @media (max-width: 900px) {
       .tiers-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -238,13 +180,7 @@
               </ul>
             </div>
             <div class="tier-footer">
-              <!--
-                STRIPE SETUP: Replace the href below with your Stripe Payment Link URL.
-                Example: href="https://buy.stripe.com/yourLinkHere"
-                Create this link at: dashboard.stripe.com → Payment Links → + Create link
-                Set amount to $150, label "White Sponsorship"
-              -->
-              <a href="#stripe-setup-required" class="btn btn-outline" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+              <a href="https://donate.stripe.com/test_aFa8wR0rE47927Gc1g6J200" target="_blank" rel="noopener" class="btn btn-outline">
                 Register &mdash; $150
               </a>
             </div>
@@ -264,10 +200,7 @@
               </ul>
             </div>
             <div class="tier-footer">
-              <!--
-                STRIPE SETUP: Replace href with your Stripe Payment Link for Black ($250).
-              -->
-              <a href="#stripe-setup-required" class="btn btn-outline" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+              <a href="https://buy.stripe.com/test_eVq4gBcameLN4fO6GW6J201" target="_blank" rel="noopener" class="btn btn-outline">
                 Register &mdash; $250
               </a>
             </div>
@@ -288,10 +221,7 @@
               </ul>
             </div>
             <div class="tier-footer">
-              <!--
-                STRIPE SETUP: Replace href with your Stripe Payment Link for Yellow ($500).
-              -->
-              <a href="#stripe-setup-required" class="btn btn-outline" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+              <a href="https://buy.stripe.com/test_9B65kF2zMfPR4fOd5k6J202" target="_blank" rel="noopener" class="btn btn-outline">
                 Register &mdash; $500
               </a>
             </div>
@@ -312,10 +242,7 @@
               </ul>
             </div>
             <div class="tier-footer">
-              <!--
-                STRIPE SETUP: Replace href with your Stripe Payment Link for Platinum ($1,000).
-              -->
-              <a href="#stripe-setup-required" class="btn btn-primary" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+              <a href="https://buy.stripe.com/test_14AbJ32zM335fYwe9o6J203" target="_blank" rel="noopener" class="btn btn-primary">
                 Register &mdash; $1,000
               </a>
             </div>
@@ -338,10 +265,7 @@
               </ul>
             </div>
             <div class="tier-footer">
-              <!--
-                STRIPE SETUP: Replace href with your Stripe Payment Link for Title ($1,500).
-              -->
-              <a href="#stripe-setup-required" class="btn btn-primary" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+              <a href="https://buy.stripe.com/test_00w8wR1vI8npeUs2qG6J204" target="_blank" rel="noopener" class="btn btn-primary">
                 Register &mdash; $1,500
               </a>
             </div>
@@ -365,10 +289,7 @@
               </ul>
             </div>
             <div class="tier-footer">
-              <!--
-                STRIPE SETUP: Replace href with your Stripe Payment Link for VIP Corporate ($2,500).
-              -->
-              <a href="#stripe-setup-required" class="btn btn-primary" onclick="alert('Stripe Payment Link not yet configured. See setup instructions below.')">
+              <a href="https://buy.stripe.com/test_eVqcN7deqavx13C4yO6J205" target="_blank" rel="noopener" class="btn btn-primary">
                 Register &mdash; $2,500
               </a>
             </div>
@@ -379,21 +300,6 @@
         <p style="font-size:0.85rem; color: var(--color-text-muted); margin-bottom: 3rem;">
           All payments are processed securely by Stripe. The Crystal Lake Wizards Wrestling Club is a registered 501(c)(3) nonprofit. Sponsorships may be tax-deductible &mdash; please consult your tax advisor. For custom sponsorship arrangements or questions, <a href="/contact.html">contact us</a>.
         </p>
-
-        <hr class="divider">
-
-        <!-- Setup Instructions (visible to site admin, can be removed once links are live) -->
-        <div class="setup-box" id="stripe-setup">
-          <h3>&#9881; Site Admin: How to Activate Stripe Payment Links</h3>
-          <ol class="setup-steps">
-            <li>Create a free Stripe account at <strong>stripe.com</strong>. Apply for nonprofit rates under <strong>Settings &rarr; Business details</strong> &mdash; as a 501(c)(3) you qualify for 2.2% + 30&cent; instead of 2.9% + 30&cent;.</li>
-            <li>In your Stripe dashboard, go to <strong>Payment Links &rarr; + Create link</strong>. Set the price to $150 and name it <code>White Sponsorship</code>. Copy the link URL (looks like <code>https://buy.stripe.com/abc123</code>).</li>
-            <li>Repeat step 2 for each tier: <code>Black $250</code>, <code>Yellow $500</code>, <code>Platinum $1,000</code>, <code>Title $1,500</code>, <code>VIP Corporate $2,500</code>.</li>
-            <li>Open <code>sponsors.html</code> in a text editor. Find each <code>&lt;a href="#stripe-setup-required"&gt;</code> button and replace <code>#stripe-setup-required</code> with the matching Stripe Payment Link URL. Also remove the <code>onclick="alert(...)"</code> attribute from each button.</li>
-            <li>Once all 6 links are replaced, you can optionally delete this entire <code>&lt;div class="setup-box"&gt;</code> section from the page &mdash; it's only needed during setup.</li>
-            <li>Save the file, commit, and push. Sponsors will be taken directly to Stripe&rsquo;s hosted checkout. Stripe sends them a receipt automatically, and deposits funds to your connected bank account.</li>
-          </ol>
-        </div>
 
       </div>
     </section>
